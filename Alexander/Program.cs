@@ -2,9 +2,9 @@
 
 internal static class Program   
 {
-    private static void Main()
+    public static void Main()
     {
-        // РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
+        //РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.Write("Введите имя: ");
         string? firstName = Console.ReadLine();
@@ -20,7 +20,7 @@ internal static class Program
         Console.WriteLine($"\nФамилия: {lastName}, Имя: {firstName}\nВозраст: {age}\nВес: {weight}\n" +
                           $"Работает: {(work ? working : "не определено")}\n");
 
-        // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
+        //РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
         do
         {
             Console.WriteLine("Введите два числа: ");
