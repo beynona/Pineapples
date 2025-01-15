@@ -2,9 +2,9 @@
 
 internal static class Program   
 {
-    public static void Main()
+    private static void Main()
     {
-        //РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
+        // РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.Write("Введите имя: ");
         string? firstName = Console.ReadLine();
@@ -16,15 +16,15 @@ internal static class Program
         double weight = (double.TryParse(Console.ReadLine(), out var weightDouble) ? weightDouble : 0);
         Console.Write("Работаете ли (да/нет): ");
         string? working = Console.ReadLine();
-        bool work = (working == "да") | (working == "нет");
+        bool work = (working == "да") || (working == "нет");
         Console.WriteLine($"\nФамилия: {lastName}, Имя: {firstName}\nВозраст: {age}\nВес: {weight}\n" +
                           $"Работает: {(work ? working : "не определено")}\n");
 
-        //РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
+        // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
         do
         {
             Console.WriteLine("Введите два числа: ");
-            if (double.TryParse(Console.ReadLine(), out var x) & double.TryParse(Console.ReadLine(), out var y))
+            if (double.TryParse(Console.ReadLine(), out var x) && double.TryParse(Console.ReadLine(), out var y))
             {
                 Console.WriteLine($"\nsum = {x + y}\nmult = {x * y}\nsub = {x - y}\ndiv = {x / y}");
                 break;
