@@ -1,45 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Задача2
+namespace EducationVS
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите два числа:");
-            const string Null = "0";
-            string x = Console.ReadLine();
-            string y = Console.ReadLine();
-            bool res1 = double.TryParse(x, out var number1);
-            bool res2 = double.TryParse(y, out var number2);
-            if (res1 & res2)
-            {
-                double a = Convert.ToDouble(x);
-                double b = Convert.ToDouble(y);
-                double del = a / b;
-                double mnozh = a * b;
-                double sum = a + b;
-                double min = a - b;
-                Console.Clear();
-                Console.WriteLine($"Сумма чисел:{sum} \nПроизведение чисел:{mnozh} \nРазность чисел:{min} \nДеление чисел:{del}");
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine(Null);
-            }
-            Console.ReadLine();
+            Console.Write("Введите Имя: ");                            // Отображение в консоли
+            string firstname = Console.ReadLine();                     // Ввод с консоли
+            Console.Write("Введите Фамилию: ");
+            string name = Console.ReadLine();
+            Console.Write("Введите возраст: ");
+            int age = int.Parse(Console.ReadLine());                  //Парсинг в целые числа
+            Console.Write("Введите свой вес: ");
+            double weight = double.Parse(Console.ReadLine());          //Парсинг в дробные числа
+            Console.Write("Работате? (Да/Нет) ");
+            string work = Console.ReadLine();
+            bool workA = (work == "да" || work == "Нет");
+            const string Work0 = " Не определился ";
+
+            Console.WriteLine($"\nВаше Имя: {firstname} \nВаша Фамилия: {name} \nВаш Возраст: {age} \nВаш Вес: {weight} \nРаботаете? {(workA ? work : Work0)}");   //Вывод на консоль
+            Console.ReadKey();
+
+
+
+
         }
-
-
-
-
-
-
     }
 }
