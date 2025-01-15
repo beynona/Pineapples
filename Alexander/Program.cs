@@ -1,22 +1,26 @@
-﻿class Program   
+﻿namespace Alexander;
+
+internal static class Program   
 {
-    static void Main(string[] args)
+    private static void Main()
     {
+        // РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.Write("Введите имя: ");
         string? firstName = Console.ReadLine();
         Console.Write("Введите Фамилию: ");
         string? lastName = Console.ReadLine();
         Console.Write("Введите возраст: ");
-        int age = (int.TryParse(Console.ReadLine(), out int ageInt) ? ageInt : 0);
+        int age = (int.TryParse(Console.ReadLine(), out var ageInt) ? ageInt : 0);
         Console.Write("Введите вес: ");
-        double weight = (double.TryParse(Console.ReadLine(), out double weightDouble) ? weightDouble : 0);
+        double weight = (double.TryParse(Console.ReadLine(), out var weightDouble) ? weightDouble : 0);
         Console.Write("Работаете ли (да/нет): ");
         string? working = Console.ReadLine();
         bool work = (working == "да") || (working == "нет");
         Console.WriteLine($"\nФамилия: {lastName}, Имя: {firstName}\nВозраст: {age}\nВес: {weight}\n" +
                           $"Работает: {(work ? working : "не определено")}\n");
 
+        // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
         do
         {
             Console.WriteLine("Введите два числа: ");
