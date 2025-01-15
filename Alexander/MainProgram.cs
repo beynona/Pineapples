@@ -15,10 +15,9 @@ internal static class Program
         Console.Write("Введите вес: ");
         double weight = (double.TryParse(Console.ReadLine(), out var weightDouble) ? weightDouble : 0);
         Console.Write("Работаете ли (да/нет): ");
-        string? working = Console.ReadLine();
-        bool work = (working == "да") || (working == "нет");
+        string? working = Console.ReadLine().ToLower();
         Console.WriteLine($"\nФамилия: {lastName}, Имя: {firstName}\nВозраст: {age}\nВес: {weight}\n" +
-                          $"Работает: {(work ? working : "не определено")}\n");
+                          $"Работает: {(working == "да" || working == "нет" ? working : "не определено")}\n");
 
         // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
         do
