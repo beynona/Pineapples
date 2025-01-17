@@ -1,10 +1,18 @@
 ﻿namespace Alexander;
 
-internal static class Program   
+internal static class Program
 {
     public static void Main()
     {
         // РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
+        Task_1();
+
+        // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
+        Task_2();
+    }
+
+    private static void Task_1()
+    {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.Write("Введите имя: ");
         string? firstName = Console.ReadLine();
@@ -18,8 +26,10 @@ internal static class Program
         string? working = Console.ReadLine().ToLower();
         Console.WriteLine($"\nФамилия: {lastName}, Имя: {firstName}\nВозраст: {age}\nВес: {weight}\n" +
                           $"Работает: {(working == "да" || working == "нет" ? working : "не определено")}\n");
+    }
 
-        // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
+    private static void Task_2()
+    {
         do
         {
             Console.WriteLine("Введите два числа: ");
@@ -28,6 +38,7 @@ internal static class Program
                 Console.WriteLine($"\nsum = {x + y}\nmult = {x * y}\nsub = {x - y}\ndiv = {x / y}");
                 break;
             }
+
             Console.WriteLine("Читать разучился? Числа давай, ЖИВО!!!");
         } while (true);
     }
