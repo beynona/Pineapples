@@ -2,6 +2,8 @@ namespace Pineapple_Educate;
 
 public class TheoryArrayTypes
 {
+    // ВАЖНО: все элементы массива начинаются с 0 индекса, а не с 1
+    
     // Одиночные массивы
     private void SingleArray()
     {
