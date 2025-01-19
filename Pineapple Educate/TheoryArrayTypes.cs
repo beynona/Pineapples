@@ -3,14 +3,14 @@ namespace Pineapple_Educate;
 public class TheoryArrayTypes
 {
     // Одиночные массивы
-    public void SingleArray()
+    private void SingleArray()
     {
         int[] myArray = { 4, 3, 1, 4 };
         string[] myStringArray = { "first", "second" };
     }
     
     // Двумерные массивы
-    public void DoubleArray()
+    private void DoubleArray()
     {
         int[,] myArray =
         {
@@ -21,7 +21,7 @@ public class TheoryArrayTypes
     }
     
     // Ключевое слово params - обозначает неизвестное число элементов в массиве
-    public int ParamOperator(params int[] param)
+    private int ParamOperator(params int[] param)
     {
         int res = 0;
 
@@ -32,7 +32,8 @@ public class TheoryArrayTypes
         
         return res;
     }
-    // В метод можем передать массив любого размера
+    // Пример с ключевым словом param
+    // В метод можем передавать массив любого размера
     private void TestParamOperator()
     {
         int a = ParamOperator(4, 3);
@@ -50,7 +51,7 @@ public class TheoryArrayTypes
     }
     
     // Принцип индексации массивов
-    public void IndexInSingleArray()
+    private void IndexInSingleArray()
     {
         int[] myArray = { 4, 3, 1, 4, 7 };
 
