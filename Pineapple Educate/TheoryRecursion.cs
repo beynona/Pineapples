@@ -3,7 +3,7 @@ namespace Pineapple_Educate;
 public class TheoryRecursion
 {
     // Пример рекурсии - обращение функции к самой себе
-    private static int SumNumbers(int value)
+    private int SumNumbers(int value)
     {
         if (value < 10)
         {
@@ -11,6 +11,14 @@ public class TheoryRecursion
         }
 
         return SumNumbers(value / 10) + value % 10;
+    }
+    
+    // Пример рекурсии - подсчёт факториала
+    private int Factorial(int n)
+    {
+        if (n == 1) return 1;
+ 
+        return n * Factorial(n - 1);
     }
     
     // Объявление класса с подвложенным данным классом
