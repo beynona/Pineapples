@@ -2,13 +2,18 @@
 
 internal static class Program
 {
+    private const ulong limitValue = ulong.MaxValue;
+    
     public static void Main()
     {
         // РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
-        Task_1();
+        // Task_1();
 
         // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
-        Task_2();
+        // Task_2();
+        
+        // ПОИСК СОВЕРШЕННЫХ ЧИСЕЛ
+        PerfectNumbersSearch();
     }
 
     private static void Task_1()
@@ -41,5 +46,28 @@ internal static class Program
 
             Console.WriteLine("Читать разучился? Числа давай, ЖИВО!!!");
         } while (true);
+    }
+    
+    private static void PerfectNumbersSearch()
+    {
+        ulong[] perfectNumbers = new ulong[10];
+        for (ulong i = 0; i <= limitValue; i += 2)
+        {
+            if (i == 0) continue;
+            ulong divisorSum = 0;
+            // максимальный собственный делитель может быть не более половины делимого
+            for (ulong j = 1; j <= i / 2; j++)
+                if (i % j == 0)
+                    divisorSum += (ulong)j;
+            if (divisorSum != i) continue;
+            for (var index = 0; perfectNumbers.Length > index; index++)
+                if (perfectNumbers[index] == 0)
+                {
+                    perfectNumbers[index] = i;
+                    Console.WriteLine(perfectNumbers[index]);
+                    break;
+                }
+            // Console.WriteLine(i);
+        }
     }
 }
