@@ -2,7 +2,7 @@
 
 internal static class Program
 {
-    private const ulong limitValue = ulong.MaxValue;
+    private const ulong LimitValue = ulong.MaxValue;
     
     public static void Main()
     {
@@ -13,7 +13,7 @@ internal static class Program
         // Task_2();
         
         // ПОИСК СОВЕРШЕННЫХ ЧИСЕЛ
-        PerfectNumbersSearch();
+        PerfectNumbersSearch_1();
     }
 
     private static void Task_1()
@@ -48,26 +48,38 @@ internal static class Program
         } while (true);
     }
     
-    private static void PerfectNumbersSearch()
+    private static void PerfectNumbersSearch_1()
     {
         ulong[] perfectNumbers = new ulong[10];
-        for (ulong i = 0; i <= limitValue; i += 2)
+        // по скольку до сих пор не найдено ни одного нечетного совершенного числа в доступном нам диапазоне,
+        // выбираем по порядку четные числа до максимального значения типа ulong
+        for (ulong i = 0; i <= LimitValue; i += 2)
         {
-            if (i == 0) continue;
-            ulong divisorSum = 0;
-            // максимальный собственный делитель может быть не более половины делимого
-            for (ulong j = 1; j <= i / 2; j++)
-                if (i % j == 0)
-                    divisorSum += (ulong)j;
+            if (i <= 2) continue;
+            // 1 и 2 делители любого четного числа, поиск делителей начинаем с 3
+            ulong divisorSum = 3;
+            // максимальный собственный делитель не может быть больше половины делимого
+            for (ulong j = 3; j <= i / 2; j++)
+            {
+                if (i % j == 0) divisorSum += (ulong)j;
+                // если сумма делителей больше делимого - дальнейший поиск не имеет смысла
+                if (divisorSum > i) break;
+            }
             if (divisorSum != i) continue;
-            for (var index = 0; perfectNumbers.Length > index; index++)
-                if (perfectNumbers[index] == 0)
-                {
-                    perfectNumbers[index] = i;
-                    Console.WriteLine(perfectNumbers[index]);
-                    break;
-                }
-            // Console.WriteLine(i);
+            // при инициализации элементы числового массива заполняются 0, ищем первый "пустой" и присваиваем ему
+            // значение найденного совершенного числа
+            for (int index = 0; perfectNumbers.Length > index; index++)
+            {
+                if (perfectNumbers[index] != 0) continue;
+                perfectNumbers[index] = i;
+                Console.WriteLine(perfectNumbers[index]);
+                break;
+            }
         }
+    }
+
+    private static void PerfectNumbersSearch_2()
+    {
+        
     }
 }
