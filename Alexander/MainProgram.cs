@@ -3,6 +3,8 @@
 internal static class Program
 {
     private const ulong LimitValue = ulong.MaxValue;
+    private const string Message = "\nCовершенные числа - это натуральные числа,\nсумма собственных делителей которых" +
+                                   " равна самому числу.\nФормула: n = (2^(p-1))*((2^p)-1)";
     
     public static void Main()
     {
@@ -12,8 +14,11 @@ internal static class Program
         // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
         // Task_2();
         
-        // ПОИСК СОВЕРШЕННЫХ ЧИСЕЛ
-        PerfectNumbersSearch_1();
+        // ПОИСК СОВЕРШЕННЫХ ЧИСЕЛ ПРЯМЫМ ПЕРЕБОРОМ
+        // PerfectNumbersSearch_1();
+        
+        // ПОИСК СОВЕРШЕННЫХ ЧИСЕЛ ПУТЕМ ПРОВЕРКИ МНОЖИТЕЛЯ НА ПРОСТОЕ ЧИСЛО
+        PerfectNumbersSearch_2();
     }
 
     private static void Task_1()
@@ -61,7 +66,7 @@ internal static class Program
             // максимальный собственный делитель не может быть больше половины делимого
             for (ulong j = 3; j <= i / 2; j++)
             {
-                if (i % j == 0) divisorSum += (ulong)j;
+                if (i % j == 0) divisorSum += j;
                 // если сумма делителей больше делимого - дальнейший поиск не имеет смысла
                 if (divisorSum > i) break;
             }
@@ -78,8 +83,45 @@ internal static class Program
         }
     }
 
+    /*
+    Для совершенных чисел существует формула - (2^(p-1))*((2^p)-1) при условии, что (2^p)-1 является простым
+    числом. Простое число - натуральное число отличное от 1,которое делится без остатка только на 1 и на само себя.
+    Поиск совершенных чисел в данном решении будет производиться путем проверки на простое число.
+    */
     private static void PerfectNumbersSearch_2()
     {
-        
+        ulong[] perfectNumbers = new ulong[10];
+        // Перебираем степени по 60ю включительно, так как на 61ой проверяемый множитель будет порядка максимального
+        // значения типа ulong. Максимально возможное число для определения при данном типе - 8-е число (на степени 31).
+        for (int n = 2; n < 61; n++)
+        {
+            ulong checkValue = Power(n)-1;
+            ulong limitValue = (checkValue / 2) + 1;
+            for (ulong divisor = 2; divisor <= limitValue; divisor++)
+            {
+                if (checkValue % divisor == 0) break;
+                if (divisor != limitValue) continue;
+                for (int index = 0; perfectNumbers.Length > index; index++)
+                {
+                    if (perfectNumbers[index] != 0) continue;
+                    perfectNumbers[index] = checkValue * Power(n - 1);
+                    break;
+                }
+            }
+        }
+        Console.WriteLine($"{Message}\nНайдены следующие совершенные числа: ");
+        for (int i = 0; perfectNumbers[i] != 0 && i < perfectNumbers.Length; i++)
+            Console.WriteLine($"#{i + 1}. {perfectNumbers[i]}");
+
+        return;
+
+        // возведение в степень по основанию 2
+        ulong Power(int pow)
+        {
+            ulong result = 1;
+            for (int i = 0; i < pow; i++)
+                result *= 2;
+            return result;
+        }
     }
 }
