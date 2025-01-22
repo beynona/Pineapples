@@ -5,7 +5,10 @@ internal static class Program
     public static void Main()
     {
         // Практика с массивами
-        ArrayTest();
+        // ArrayTest();
+        
+        //Практика с наследованием
+        InheritanceTest();
     }
 
     private static void ArrayTest()
@@ -21,6 +24,33 @@ internal static class Program
         // Тест добавления элемента в начало массива
         ArrayPractice.AddFirst(ref testArray, 17);
         Helpers.ConsoleHelper(testArray, "Массив с новым элементом на 0 индексе: ");
+    }
+
+    private static void InheritanceTest()
+    {
+        // Базовый класс
+        InheritancePractice.Person person = new InheritancePractice.Person
+        {
+            Name = "Bill",
+            LastName = "Gate"
+        };
+        person.Display();
+        
+        // Класс наследник - имеет функционал класса Person
+        InheritancePractice.Employee employee = new InheritancePractice.Employee
+        {
+            Name = "Jorj",
+            LastName = "Shunk",
+            Company = "MC"
+        };
+        employee.Display();
+        
+        //Вариант конструктора через base
+        InheritancePractice.Employee testEmployee = new InheritancePractice.Employee(
+            "Ivan",
+            "Lohi",
+            "Dinamo");
+
     }
 
   
