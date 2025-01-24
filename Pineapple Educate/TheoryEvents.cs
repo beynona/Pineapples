@@ -90,7 +90,7 @@ public class EventPractice
         Sum += sum;
         if (Added != null)
         {
-            Added(this,$"Пополнение счёта: {sum}");
+            Added(this,new AccountEventArgs(sum,$"Пополнение счёта: {sum}"));
         }
     }
 }
