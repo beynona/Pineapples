@@ -1,5 +1,6 @@
 namespace Pineapple_Educate;
 
+// Рекурсия.
 public class TheoryRecursion
 {
     // Пример рекурсии - обращение функции к самой себе

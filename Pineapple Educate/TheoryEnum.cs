@@ -1,5 +1,6 @@
 namespace Pineapple_Educate;
 
+// Enum перечисления.
 public class TheoryEnum
 {
     // Объявление enum перечисления

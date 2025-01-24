@@ -1,13 +1,14 @@
 namespace Pineapple_Educate;
 
+// Структуры.
 public class TheoryStruct
 {
     // Объявление структуры
     private struct Point
     {
-        public int a;
-        public double b;
-        public string c;
+        public int A;
+        public double B;
+        public string C;
     }
     
     // Объявление пустой структуры
@@ -21,9 +22,9 @@ public class TheoryStruct
     private void RefOp(ref Point point)
     {
         // Изменит значения структуры по ссылке в куче
-        point.a = -5;
-        point.b = 3;
-        point.c = "data";
+        point.A = -5;
+        point.B = 3;
+        point.C = "data";
     }
 
     // Ключевое слово out
@@ -31,8 +32,8 @@ public class TheoryStruct
     private void OutOp(out Point point)
     {
         // Присвоит и вернёт новые значения без использования return
-        point.a = -5;
-        point.b = 3;
-        point.c = "data";
+        point.A = -5;
+        point.B = 3;
+        point.C = "data";
     }
 }

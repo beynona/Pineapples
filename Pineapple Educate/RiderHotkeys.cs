@@ -1,5 +1,6 @@
 namespace Pineapple_Educate;
 
+// Горячие клавиши JetBrains Rider.
 public class RiderHotkeys
 {
     // Поиск любого элемента во всем проекте: ctrl + N

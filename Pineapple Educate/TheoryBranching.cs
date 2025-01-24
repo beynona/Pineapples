@@ -1,5 +1,6 @@
 namespace Pineapple_Educate;
 
+// Циклы и тернарный оператор.
 public class TheoryBranching
 {
     // ОПЕРАТОР ВЕТВЛЕНИЯ if-else

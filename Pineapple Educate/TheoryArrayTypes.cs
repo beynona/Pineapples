@@ -1,9 +1,9 @@
 namespace Pineapple_Educate;
 
+// Массивы.
+// ВАЖНО: все элементы массива начинаются с 0 индекса, а не с 1
 public class TheoryArrayTypes
 {
-    // ВАЖНО: все элементы массива начинаются с 0 индекса, а не с 1
-    
     // Одиночные массивы
     private void SingleArray()
     {

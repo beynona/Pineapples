@@ -1,7 +1,6 @@
-using System.Runtime.Intrinsics.X86;
+namespace Pineapple_Educate;
 
-namespace Yauheni;
-
+// Модификаторы доступа.
 public class TheoryAccessModifiers
 {
    /*

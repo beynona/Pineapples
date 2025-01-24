@@ -1,5 +1,6 @@
-namespace Yauheni;
+namespace Pineapple_Educate;
 
+// Типы данных.
 public class TheoryDataTypes
 {
     /* Значимые типы (Типы значений):

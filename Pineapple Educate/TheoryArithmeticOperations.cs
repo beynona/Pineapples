@@ -1,5 +1,6 @@
 namespace Pineapple_Educate;
 
+// Арифметические и логические операции.
 public class TheoryArithmeticOperations
 {
     // Арифметические операции

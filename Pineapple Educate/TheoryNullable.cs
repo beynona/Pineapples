@@ -1,5 +1,6 @@
-namespace Yauheni;
+namespace Pineapple_Educate;
 
+// Nullable - типы
 public class TheoryNullable
 {
     // Null у значимых типов
