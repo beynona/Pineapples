@@ -17,6 +17,7 @@ internal static class Program
         // ПОИСК СОВЕРШЕННЫХ ЧИСЕЛ ПУТЕМ ПРОВЕРКИ МНОЖИТЕЛЯ НА ПРОСТОЕ ЧИСЛО
         // PerfectNumbersSearch();
         
+        // ЗАПУСК ПРОГРАММЫ, РЕШАЮЩЕЙ СИСТЕМЫ ЛИНЕЙНЫХ УРАВНЕНИЙ (x2 / x3) МЕТОДОМ КРАМЕРА
         KramerMethodApp.StartApp();
     }
 
