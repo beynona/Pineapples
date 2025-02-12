@@ -10,14 +10,16 @@ internal abstract class KramerMethodApp
                                         |расчеты решений для систем из 2-х и 3-х уравнений.                           |
                                         |                      _-=||| УПРАВЛЯЮЩИЕ КОМАНДЫ |||=-_                      |
                                         +=============================================================================+
-                                        |"СТОП" - выход | "ДОК" - вывод описания | "..........." - последний результат|
-                                        |=======| "...." - вывод всего лог-файла | "....." - очистка лог-файла |======|
+                                        |==| "exit" - выход | "doc" - вывод описания | "last" - последний результат |=|
+                                        |=======| "read" - вывод всего лог-файла | "clear" - очистка лог-файла |======|
                                         +=============================================================================+
-                                        |          ВВОД КОМАНД производить во время запроса порядка системы.          |
+                                        | ВВОД КОМАНД производить во время запроса порядка системы. Разделитель - "," |
                                         +-----------------------------------------------------------------------------+
                                         """;
+    private const string Separator = "==============================================================================+";
     private const string QuestionNumberEquations = "Введите количество уравнений в вашей системе: ";
     private const string InvalidInputMessage = "НЕВЕРНЫЙ ВВОД! Повторите ...";
+    private const string Path = "kramerMethodLog.txt";
     private const string EndMessage = "Bye...";
     
     internal static void StartApp()
@@ -33,16 +35,24 @@ internal abstract class KramerMethodApp
                 double[][] matrix = DataGeneration(ref numberEquations);
                 double[][] result = Calculation(ref matrix, ref numberEquations);
                 string message = PreparingOutput(ref matrix, ref result, ref numberEquations);
-                // WorkingWithLogs.WriteLog(ref message);
-                Console.WriteLine(message);
+                WorkingWithLogs.WriteLog(ref message, Path);
+                Console.WriteLine($"\n{Separator}\n{message}");
             }
-            else if (input is "стоп")
+            else if (input is "doc")
+                Console.WriteLine("\n" + StartMessage);
+            else if (input is "last")
+                WorkingWithLogs.ReadLustLog(Path, Separator);
+            else if (input is "read")
+            {
+                WorkingWithLogs.ReadLogs(Path, Separator);
+            }
+            else if (input is "clear")
+                WorkingWithLogs.ClearLogs(Path);
+            else if (input is "exit")
             {
                 Console.WriteLine("\n" + EndMessage);
                 break;
             }
-            else if (input is "док")
-                Console.WriteLine("\n" + StartMessage);
             else
                 Console.WriteLine(InvalidInputMessage);
         } while (true);
@@ -138,7 +148,6 @@ internal abstract class KramerMethodApp
         const string systemNotDefinedMessage = "Система уравнений совместна, но не определена.\n" +
                                                "Имеет бесчисленное множество решений.\n";
         const string systemNotCompatibleMessage = "Система уравнений несовместна и не имеет решений.\n";
-        const string separator = "==============================================================================+";
         string matrixText = "\n", resultText = "\n";
         for (int i = 0; i < matrix[0].Length; i++)
         {
@@ -167,7 +176,74 @@ internal abstract class KramerMethodApp
                 resultText += systemNotCompatibleMessage;
                 break;
         }
-        return $"\n{separator}\nВведенная матрица имеет следующий вид:{matrixText}" +
-               $"Значения определителей следующие:{resultText}{separator}";
+        return $"Введенная матрица имеет следующий вид:{matrixText}" +
+               $"Значения определителей следующие:{resultText}{Separator}";
+    }
+}
+
+internal abstract class WorkingWithLogs
+{
+    private const string ErrorMessage = "ОШИБКА: ЛОГ-файл отсутствует.";
+    
+    internal static void WriteLog(ref readonly string message, string path)
+    {
+        StreamWriter writer = new StreamWriter(path, true, System.Text.Encoding.UTF8);
+        try
+        {
+            writer.WriteLine(message);
+        }
+        finally
+        {
+            writer.Dispose();
+        }
+    }
+
+    internal static void ReadLustLog(string path, string separator)
+    {
+        try
+        {
+            string[] lines = File.ReadAllLines(path, System.Text.Encoding.UTF8);
+            int startOutputIndex = 0;
+            int lastSeparatorIndex = 0;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i] != separator) continue;
+                startOutputIndex = lastSeparatorIndex + 1;
+                lastSeparatorIndex = i;
+            }
+            Console.WriteLine($"\n{separator}");
+            if (startOutputIndex is 0 or 1)
+            {
+                foreach (string line in lines) Console.WriteLine(line);
+            }
+            else
+            {
+                for (int i = startOutputIndex; i < lines.Length; i++) Console.WriteLine(lines[i]);
+            }
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine(ErrorMessage);
+        }
+    }
+
+    internal static void ReadLogs(string path, string separator)
+    {
+        try
+        {
+            StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8);
+            Console.Write($"\n{separator}\n{reader.ReadToEnd()}");
+            reader.Dispose();
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine(ErrorMessage);
+        }
+    }
+
+    internal static void ClearLogs(string path)
+    {
+        using StreamWriter writer = new StreamWriter(path, false, System.Text.Encoding.UTF8);
+        Console.WriteLine("ЛОГ-файл очищен.");
     }
 }
