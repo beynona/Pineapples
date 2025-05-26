@@ -58,7 +58,7 @@ internal abstract class KramerMethodApp
         } while (true);
     }
 
-    private static double[][] DataGeneration(ref readonly int numberEquations)
+    private static double[][] DataGeneration(ref int numberEquations)
     {
         const string forInputMessageA = "\nВвод значений коэффициентов при неизвестных (слева-направо, сверху-вниз):";
         const string forInputMessageB = "\nВвод значений свободных коэффициентов:";
@@ -93,11 +93,11 @@ internal abstract class KramerMethodApp
         return matrix;
     }
 
-    private static double[][] Calculation(ref readonly double[][] matrix, ref readonly int numberEquations)
+    private static double[][] Calculation(ref double[][] matrix, ref int numberEquations)
     {
-        double[] isDefined = [0, 1, 2];
+        double[] isDefined = {0, 1, 2};
         double[][] result = new double[3][];
-        result[0] = [isDefined[0]];
+        result[0] = new []{isDefined[0]};
         result[1] = new double[numberEquations + 1];
         result[2] = new double[numberEquations];
         switch (numberEquations)
@@ -141,8 +141,8 @@ internal abstract class KramerMethodApp
         return result;
     }
     
-    private static string PreparingOutput(ref readonly double[][] matrix,
-            ref readonly double[][] result, ref readonly int numberEquations)
+    private static string PreparingOutput(ref double[][] matrix,
+            ref double[][] result, ref int numberEquations)
     {
         const string systemDefinedMessage = "Система уравнений совместна и определена.\nИмеет единственное решение:\n";
         const string systemNotDefinedMessage = "Система уравнений совместна, но не определена.\n" +
@@ -185,7 +185,7 @@ internal abstract class WorkingWithLogs
 {
     private const string ErrorMessage = "ОШИБКА: ЛОГ-файл отсутствует.";
     
-    internal static void WriteLog(ref readonly string message, string path)
+    internal static void WriteLog(ref string message, string path)
     {
         StreamWriter writer = new StreamWriter(path, true, System.Text.Encoding.UTF8);
         try
