@@ -8,7 +8,8 @@ internal static class Program
         // InheritanceTest(); // Практика с наследованием
         // DelegateTest(); // Практика с делигатами
 
-        CodeWithException.ErrorsCode(0);
+        CodeWithException.ErrorsCode(0); // С ошибкой
+        CodeWithException.ErrorsCode(1); // Без ошибкой
     }
 
     
