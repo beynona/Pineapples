@@ -5,7 +5,7 @@ namespace Maxim
     {
         private const string DefaultWorkStatus = "Не определился";
 
-        static void Main(string[] args)
+        static void Main()
         {
             // 1 Задание
             Task_1();
@@ -29,7 +29,7 @@ namespace Maxim
                 Console.Write("Неверный ввода! Введите свой вес: ");
 
             Console.Write("Работате?: (Да/Нет) ");
-            string work = Console.ReadLine().ToUpper();
+            string? work = Console.ReadLine()?.ToUpper();
             bool workA = (work == "ДА" || work == "НЕТ");
             Console.Write($"\nВаше Имя: {firstname} \nВаша Фамилия: {name} \nВаш Возраст: {age}\n" +
                           $"Ваш Вес: {weight} \nТрудоустройство: {(workA ? work : DefaultWorkStatus)}"); // Вывод на консоль.

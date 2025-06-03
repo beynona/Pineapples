@@ -5,7 +5,7 @@ namespace Pineapple_Educate;
 // Ключевое слово delegate
 public class TheoryDelegate
 {
-    // Данному делегату соответствуют все методы, которые не принимают ни 1 параметра и ничего не возвращают
+    // Данному делегату соответствуют все методы, которые принимают 1 строковый параметр и ничего не возвращают
     delegate void Message(string message);
     // Данному делегату соответствуют все методы, которые принимают 2 int параметра и возвращают тип int
     delegate int Operation(int x, int y);
@@ -17,7 +17,7 @@ public class TheoryDelegate
         message.Invoke("hello"); // вызов делегата
     }
     // Данный метод соответствует делегату Message
-    public void ConsoleDisplay(string message)
+    private void ConsoleDisplay(string message)
     {
         Console.WriteLine(message);
     }

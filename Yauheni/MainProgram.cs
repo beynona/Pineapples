@@ -7,12 +7,39 @@ internal static class Program
         // ArrayTest(); // Практика с массивами
         // InheritanceTest(); // Практика с наследованием
         // DelegateTest(); // Практика с делигатами
+        // CodeWithException.ErrorsCode(0); // С ошибкой
+        // CodeWithException.ErrorsCode(1); // Без ошибкой
 
-        CodeWithException.ErrorsCode(0); // С ошибкой
-        CodeWithException.ErrorsCode(1); // Без ошибкой
+        EventsTest();
     }
 
-    
+    private static void EventsTest()
+    {
+        EventsPractice person = new EventsPractice
+        {
+            Name = "Jenua"
+        };
+        person.GoToSleep += PersonOnGoToSleep;
+        person.DoWork += PersonOnDoWork;
+        // Оповещаем DoWork
+        person.OnGoToSleep(new DateTime(2015, 11, 15, 18, 55, 55));
+        // Оповещаем всех подписчиков, что произошло событие GoToSleep
+        person.OnGoToSleep(new DateTime(2015, 11, 15, 23, 55, 55));
+    }
+
+    private static void PersonOnDoWork(object? sender, EventArgs e)
+    {
+        if (sender is EventsPractice)
+        {
+            Console.WriteLine($"{((EventsPractice)sender).Name} работает работу");
+        }
+    }
+
+    private static void PersonOnGoToSleep()
+    {
+        Console.WriteLine("Человек пошёл спать");
+    }
+
     private static void DelegateTest()
     {
         DelegatePractice delegatePractice = new DelegatePractice();

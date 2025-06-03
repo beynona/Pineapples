@@ -33,7 +33,7 @@ internal static class Program
         Console.Write("Введите вес: ");
         double weight = (double.TryParse(Console.ReadLine(), out var weightDouble) ? weightDouble : 0);
         Console.Write("Работаете ли (да/нет): ");
-        string? working = Console.ReadLine().ToLower();
+        string? working = Console.ReadLine()?.ToLower();
         Console.WriteLine($"\nФамилия: {lastName}, Имя: {firstName}\nВозраст: {age}\nВес: {weight}\n" +
                           $"Работает: {(working == "да" || working == "нет" ? working : "не определено")}\n");
     }
