@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yauheni", "Yauheni\Yauheni.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexander", "Alexander\Alexander.csproj", "{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjects", "TestProjects\TestProjects.csproj", "{8C0D6075-1177-4751-AD9C-F40B2E187CF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
