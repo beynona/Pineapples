@@ -1,6 +1,6 @@
 namespace Pineapple_Educate;
 
-public class RussianComments
+public class ExtRussianComments
 {
     /*
     File -> Settings -> Editor -> Natural Languages

@@ -4,16 +4,14 @@ internal static class Program
 {
     public static void Main()
     {
-        // Практика с массивами
-        // ArrayTest();
+        // ArrayTest(); // Практика с массивами
+        // InheritanceTest(); // Практика с наследованием
+        // DelegateTest(); // Практика с делигатами
 
-        // Практика с наследованием
-        // InheritanceTest();
-        
-        // Практика с делигатами
-        DelegateTest();
+        CodeWithException.ErrorsCode(0);
     }
 
+    
     private static void DelegateTest()
     {
         DelegatePractice delegatePractice = new DelegatePractice();

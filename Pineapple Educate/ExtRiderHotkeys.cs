@@ -1,7 +1,7 @@
 namespace Pineapple_Educate;
 
 // Горячие клавиши JetBrains Rider.
-public class RiderHotkeys
+public class ExtRiderHotkeys
 {
     // Поиск любого элемента во всем проекте: ctrl + N
     // Дублирование полей/свойств/методов: ctrl + D
