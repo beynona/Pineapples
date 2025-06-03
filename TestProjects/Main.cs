@@ -4,7 +4,23 @@ static class Program
 {
     public static void Main()
     {
-        ApplePractice(); // Products
+        // ApplePractice(); // Products
+
+        CarPractice(); // Cars
+    }
+
+    private static void CarPractice()
+    {
+        List<ICar> cars = new List<ICar>
+        {
+            new Lada(),
+            new BmwSeven()
+        };
+
+        foreach (var car in cars)
+        {
+            car.Move(155);
+        }
     }
 
     private static void ApplePractice()
@@ -16,6 +32,13 @@ static class Program
         Console.WriteLine($"First apple: {secondApple}");   // Вывод имени 2 объекта
 
         Apple sumApples = firstApple + secondApple;
-        Console.WriteLine($"Sum apples: {sumApples}"); 
+        Console.WriteLine($"Sum apples: {sumApples}");
+
+        Eating<Apple> eating = new Eating<Apple>(); // Тест дженериков (обобщений)
+        eating.Add(firstApple);
+        Console.WriteLine($"Eating first apple: {eating}");
+        eating.Add(secondApple);
+        Console.WriteLine($"Eating second apple: {eating}");
+
     }
 }
