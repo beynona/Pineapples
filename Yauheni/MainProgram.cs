@@ -7,12 +7,20 @@ internal static class Program
         // ArrayTest(); // Практика с массивами
         // InheritanceTest(); // Практика с наследованием
         // DelegateTest(); // Практика с делигатами
-        // CodeWithException.ErrorsCode(0); // С ошибкой
-        // CodeWithException.ErrorsCode(1); // Без ошибкой
+        // CodeWithException.ErrorsCode(0); // Практика с отловом ошибок - С ошибкой
+        // CodeWithException.ErrorsCode(1); // Практика с отловом ошибок - Без ошибкой
+        // EventsTest(); // Практика с событиями
 
-        EventsTest();
+        StreamTest(); // Работа с файлами
     }
 
+    private static void StreamTest()
+    {
+        StreamPractice sp = new StreamPractice();
+        
+        sp.WriteAndReadFromFile();
+    }
+    
     private static void EventsTest()
     {
         EventsPractice person = new EventsPractice
