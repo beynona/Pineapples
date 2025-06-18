@@ -10,8 +10,14 @@ internal static class Program
         // CodeWithException.ErrorsCode(0); // Практика с отловом ошибок - С ошибкой
         // CodeWithException.ErrorsCode(1); // Практика с отловом ошибок - Без ошибкой
         // EventsTest(); // Практика с событиями
+        // StreamTest(); // Работа с файлами
+        AsyncTest(); // Работа с async
+    }
 
-        StreamTest(); // Работа с файлами
+    private static void AsyncTest()
+    {
+        AsyncPractice asyncPractice = new AsyncPractice();
+        asyncPractice.AsyncPracticeMain();
     }
 
     private static void StreamTest()

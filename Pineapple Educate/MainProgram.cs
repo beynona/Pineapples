@@ -5,6 +5,12 @@ internal static class Program
 {
     public static void Main()
     {
-        Console.WriteLine("Hello, World!");
+        AsyncTestTheory(); // Theory in async
+    }
+
+    private static void AsyncTestTheory()
+    {
+        TheoryAsync async = new TheoryAsync();
+        async.MainAsyncPractice();
     }
 }
