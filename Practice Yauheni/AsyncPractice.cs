@@ -5,7 +5,7 @@ namespace Yauheni;
 public class AsyncPractice
 {
    // Объект синхронизации
-   public static object locker = new object();
+   private static readonly object Locker = new object();
       
    public void AsyncPracticeMain()
    {
@@ -31,7 +31,7 @@ public class AsyncPractice
    {
       var text = "";
       Console.WriteLine("Start SaveFile");
-      lock (locker)
+      lock (Locker)
       {
          var rnd = new Random();
          for (int i = 0; i < 15; i++)

@@ -1,14 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple Educate", "Pineapple Educate\Pineapple Educate.csproj", "{70A95CE1-DF5A-4F18-A3EB-5B6E91CB6A94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theory", "Theory\Theory.csproj", "{70A95CE1-DF5A-4F18-A3EB-5B6E91CB6A94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxim", "Maxim\Maxim.csproj", "{B671835B-7B2F-4DCE-AC80-146E52576876}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice Maxim", "Practice Maxim\Practice Maxim.csproj", "{B671835B-7B2F-4DCE-AC80-146E52576876}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yauheni", "Yauheni\Yauheni.csproj", "{B7E46C0B-6A3B-4525-A6DF-4ABFA27A4C7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice Yauheni", "Practice Yauheni\Practice Yauheni.csproj", "{B7E46C0B-6A3B-4525-A6DF-4ABFA27A4C7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexander", "Alexander\Alexander.csproj", "{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice Alexander", "Practice Alexander\Practice Alexander.csproj", "{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjects", "TestProjects\TestProjects.csproj", "{8C0D6075-1177-4751-AD9C-F40B2E187CF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerTcp", "ServerTcp\ServerTcp.csproj", "{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,9 @@ Global
 		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
