@@ -36,7 +36,7 @@ public class InheritancePractice
             Console.WriteLine($"Hi {_firstName} {_lastName}");
         }
     }
-    // Поддерживается одиночное нассле
+    // Поддерживается одиночное наследование
     public class Employee : Person
     {
         private string _company;

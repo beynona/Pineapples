@@ -3,6 +3,8 @@ namespace Pineapple_Educate;
 // Горячие клавиши JetBrains Rider.
 public class ExtRiderHotkeys
 {
+    // Форматирование файла по стандартам: ctrl + alt + L
+    // Удаление строчки кода: ctrl + shift + L
     // Поиск любого элемента во всем проекте: ctrl + N
     // Дублирование полей/свойств/методов: ctrl + D
     // Закрытие любого ненужного окошка: shift + esc

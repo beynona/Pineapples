@@ -47,8 +47,8 @@ public class Apple : Products
     {
         double newAppleCalories = firstApple.Calorie + secondApple.Calorie;
         int newAppleAmount = firstApple.Amount + secondApple.Amount;
-        Apple newApple = new Apple(DefaultAppleName, newAppleCalories, newAppleAmount);
-        return newApple;
+        
+        return new Apple(DefaultAppleName, newAppleCalories, newAppleAmount);
     }
 }
 

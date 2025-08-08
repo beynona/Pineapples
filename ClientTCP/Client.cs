@@ -2,7 +2,7 @@
 using System.Net.Sockets;
 using System.Text;
 
-namespace ClientTcp
+namespace ClientTCP
 {
     static class Server
     {

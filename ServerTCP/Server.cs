@@ -37,9 +37,6 @@ namespace ServerTcp
                 // Буфер. Место куда принимаются данные (сообщения)
                 // Максимум сообщение из 256 байт
                 var buffer = new byte[256];
-
-                // Реальный объём байт полученного сообщения (если сообщение короче)
-                var size = 0;
                 
                 // Собирает полученные данные из массива байт
                 var data = new StringBuilder();
@@ -47,7 +44,7 @@ namespace ServerTcp
                 do
                 {
                     // Receive - возвращает полученное значение байт
-                    size = listener.Receive(buffer);
+                   var size = listener.Receive(buffer);
                     
                     // Раскодируем полученные данные
                     var encodingData = Encoding.UTF8.GetString(buffer, 0, size);
