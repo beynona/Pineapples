@@ -4,6 +4,7 @@ namespace Pineapple_Educate;
 public class ExtRiderHotkeys
 {
     // Форматирование файла по стандартам: ctrl + alt + L
+    // Вынесли код в отдельный метод: ctrl + alt + M
     // Удаление строчки кода: ctrl + shift + L
     // Поиск любого элемента во всем проекте: ctrl + N
     // Дублирование полей/свойств/методов: ctrl + D
