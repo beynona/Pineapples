@@ -1,6 +1,6 @@
 ﻿namespace Yauheni;
 
-internal static class Program
+internal static class MainProgram
 {
     public static void Main()
     {

@@ -1,11 +1,11 @@
 ﻿namespace Alexander;
 
-internal static class Program
+internal static class MainProgram
 {
     private const ulong LimitValue = ulong.MaxValue;
     private const string Message = "\nCовершенные числа - это натуральные числа,\nсумма собственных делителей которых" +
                                    " равна самому числу.\nФормула: n = (2^(p-1))*((2^p)-1)";
-    
+
     public static void Main()
     {
         // РЕШЕНИЕ ПЕРВОЙ ЗАДАЧИ
@@ -13,10 +13,10 @@ internal static class Program
 
         // РЕШЕНИЕ ВТОРОЙ ЗАДАЧИ
         // Task_2();
-        
+
         // ПОИСК СОВЕРШЕННЫХ ЧИСЕЛ ПУТЕМ ПРОВЕРКИ МНОЖИТЕЛЯ НА ПРОСТОЕ ЧИСЛО
         // PerfectNumbersSearch();
-        
+
         // ЗАПУСК ПРОГРАММЫ, РЕШАЮЩЕЙ СИСТЕМЫ ЛИНЕЙНЫХ УРАВНЕНИЙ (x2 / x3) МЕТОДОМ КРАМЕРА
         KramerMethodApp.StartApp();
     }
@@ -66,7 +66,7 @@ internal static class Program
         Console.WriteLine($"\nНайдены следующие совершенные числа: ");
         for (int n = 2; n < 61; n++)
         {
-            ulong checkValue = Power(n)-1;
+            ulong checkValue = Power(n) - 1;
             ulong limitValue = (checkValue / 2) + 1;
             for (ulong divisor = 2; divisor <= limitValue; divisor++)
             {
@@ -81,6 +81,7 @@ internal static class Program
                 }
             }
         }
+
         Console.Write("\nНажмите Enter чтобы выйти => ");
         Console.ReadKey();
 

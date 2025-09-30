@@ -6,17 +6,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice Yauheni", "Practic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice Alexander", "Practice Alexander\Practice Alexander.csproj", "{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjects", "TestProjects\TestProjects.csproj", "{8C0D6075-1177-4751-AD9C-F40B2E187CF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP Server", "TCP Server\TCP Server.csproj", "{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerTCP", "ServerTCP\ServerTCP.csproj", "{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP Client", "TCP Client\TCP Client.csproj", "{54BF552F-18DF-41B6-AF42-B30629B4CC2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTCP", "ClientTCP\ClientTCP.csproj", "{54BF552F-18DF-41B6-AF42-B30629B4CC2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDP Server", "UDP Server\UDP Server.csproj", "{27703002-2B2D-491A-B483-5E52678C361B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerUDP", "ServerUDP\ServerUDP.csproj", "{27703002-2B2D-491A-B483-5E52678C361B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDP Client", "UDP Client\UDP Client.csproj", "{639F9FEB-7550-46BE-A4BA-987E427D4015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientUDP", "ClientUDP\ClientUDP.csproj", "{639F9FEB-7550-46BE-A4BA-987E427D4015}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theory in Practice", "Theory in Practice\Theory in Practice.csproj", "{F75F658A-6774-4E9C-B351-1EFFACB18D0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyPractice", "AnyPractice\AnyPractice.csproj", "{F75F658A-6774-4E9C-B351-1EFFACB18D0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice Maxim", "Practice Maxim\Practice Maxim.csproj", "{48393FFA-4927-4787-AD04-CBA772C478FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +36,6 @@ Global
 		{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BA0D935-0DA8-4D1C-AEFF-E0AF2269824E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C0D6075-1177-4751-AD9C-F40B2E187CF0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B9165BB-FDB8-4133-875D-A3BC78FCA9ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,5 +56,9 @@ Global
 		{F75F658A-6774-4E9C-B351-1EFFACB18D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F75F658A-6774-4E9C-B351-1EFFACB18D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F75F658A-6774-4E9C-B351-1EFFACB18D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48393FFA-4927-4787-AD04-CBA772C478FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48393FFA-4927-4787-AD04-CBA772C478FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48393FFA-4927-4787-AD04-CBA772C478FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48393FFA-4927-4787-AD04-CBA772C478FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-namespace TestProjects;
+namespace AnyPractice;
 
 public abstract class Products
 {
@@ -27,10 +27,30 @@ public abstract class Products
         Amount = amount;
     }
     
-   
     public override string ToString()
     {
         return $"Name: {Name}, Calorie: {Calorie}, Amount: {Amount}";
+    }
+}
+
+public static class ProductHelpers
+{
+    public static void CalculateCalories()
+    {
+        Apple firstApple = new Apple("Red Apple", 5, 6);
+        Console.WriteLine($"First apple: {firstApple}"); // Вывод имени 1 объекта
+        
+        Apple secondApple = new Apple("Green Apple", 6, 2);
+        Console.WriteLine($"First apple: {secondApple}");   // Вывод имени 2 объекта
+
+        Apple sumApples = firstApple + secondApple;
+        Console.WriteLine($"Sum apples: {sumApples}");
+
+        Eating<Apple> eating = new Eating<Apple>(); // Тест дженериков (обобщений)
+        eating.Add(firstApple);
+        Console.WriteLine($"Eating first apple: {eating}");
+        eating.Add(secondApple);
+        Console.WriteLine($"Eating second apple: {eating}");
     }
 }
 

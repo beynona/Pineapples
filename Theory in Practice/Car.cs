@@ -1,4 +1,4 @@
-namespace TestProjects;
+namespace AnyPractice;
 
 internal interface ICar
 {
@@ -24,5 +24,22 @@ public class BmwSeven : ICar
     {
         double speed = distance / 40.0;
         Console.WriteLine($"{speed}");
+    }
+}
+
+public static class CarHelpers
+{
+    public static void AnyCarMove()
+    {
+        List<ICar> cars = new List<ICar>
+        {
+            new Lada(),
+            new BmwSeven()
+        };
+
+        foreach (var car in cars)
+        {
+            car.Move(155);
+        }
     }
 }
