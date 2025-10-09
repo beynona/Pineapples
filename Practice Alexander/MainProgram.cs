@@ -18,7 +18,10 @@ internal static class MainProgram
         // PerfectNumbersSearch();
 
         // ЗАПУСК ПРОГРАММЫ, РЕШАЮЩЕЙ СИСТЕМЫ ЛИНЕЙНЫХ УРАВНЕНИЙ (x2 / x3) МЕТОДОМ КРАМЕРА
-        KramerMethodApp.StartApp();
+        // KramerMethodApp.StartApp();
+        
+        // ЗАПУСК ПРИЛОЖЕНИЯ "Библиотека фильмов"
+        FilmLibrary.StartApp();
     }
 
     private static void Task_1()
