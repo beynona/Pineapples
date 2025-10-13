@@ -1,3 +1,5 @@
+using Alexander.FiLi;
+
 namespace Alexander;
 
 internal abstract class FilmLibrary
@@ -20,5 +22,8 @@ internal abstract class FilmLibrary
         Console.Clear();
         Console.WriteLine(StartMessage);
         Console.ReadKey();
+
+        Movie TopGun = new Movie();
+        TopGun.Name = "TopGun";
     }
 }
