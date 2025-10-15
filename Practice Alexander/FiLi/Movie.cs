@@ -2,13 +2,6 @@ namespace Alexander.FiLi;
 
 internal class Movie
 {
-    private string name;
-    private int yearRelease;
-    private string genre;
-    private string director;
-    private string actors;
-    private string description;
-
     // public Movie(string name, int yearRelease, string genre, string director, string actors, string description)
     // {
     //     this.name = name;
@@ -19,10 +12,21 @@ internal class Movie
     //     this.description = description;
     // }
 
-    public string Name { get => name; set => name = value; }
-    public int YearRelease { get => yearRelease; set => yearRelease = value; }
-    public string Genre { get => genre; set => genre = value; }
-    public string Director { get => director; set => director = value; }
-    public string Actors { get => actors; set => actors = value; }
-    public string Description { get => description; set => description = value; }
+    internal string Name { get; set; } = "Игра Эндера";
+    internal int YearRelease { get; set; } = 2013;
+    internal string Genre { get; set; } = "фантастика, боевик, приключения, фэнтези";
+    internal string Director { get; set; } = "Гевин Худ";
+
+    internal string Actors { get; set; } =
+        """
+        Эйса Баттерфилд, Харрисон Форд, Бен Кингсли, Виола Дэвис, Хейли Стайнфелд, Эбигейл Бреслин, Арамис Найт,
+        Сурадж Партха, Мойзес Ариас, Кайлин Рамбо
+        """;
+
+    internal string Description { get; set; } =
+        """
+        Действие происходит в 2135 году. Человечество пережило два вторжения инопланетной расы «жукеров», лишь чудом уцелев, и готовится к очередному вторжению.
+        Для поиска пилотов и военачальников, способных принести Земле победу, создаётся военная школа, в которую отправляют самых талантливых детей.
+        Среди этих детей Эндрю (Эндер) Виггин, будущий полководец Международного флота Земли и единственная надежда человечества на спасение.
+        """;
 }
