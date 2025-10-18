@@ -1,8 +1,8 @@
 namespace Alexander.FiLi;
 
-internal class Movie(string name, string yearRelease, string genre, string director, string actors, string description)
+internal class Movie(string name, string year, string genre, string director, string actors, string description)
 {
-    public Movie() : this
+    internal Movie() : this
     (
         "Игра Эндера",
         "2013",
@@ -16,25 +16,25 @@ internal class Movie(string name, string yearRelease, string genre, string direc
         Действие происходит в 2135 году. Человечество пережило два вторжения инопланетной расы «жукеров», лишь чудом уцелев,
         и готовится к очередному вторжению. Для поиска пилотов и военачальников, способных принести Земле победу,
         создаётся военная школа, в которую отправляют самых талантливых детей. Среди этих детей Эндрю (Эндер) Виггин,
-        будущий полководец Международного флота Земли и единственная надежда человечества на спасение.
+        будущий полководец Международного флота Земли и единственная надежда человечества на спасение
         """
     )
     {
     }
 
-    internal string Name { get; set; } = name;
+    public string? Name { get; set; } = name;
 
-    internal string YearRelease { get; set; } = yearRelease;
+    public string? Year { get; set; } = year;
 
-    internal string Genre { get; set; } = genre;
+    public string? Genre { get; set; } = genre;
 
-    internal string Director { get; set; } = director;
+    public string? Director { get; set; } = director;
 
-    internal string Actors { get; set; } = actors;
+    public string? Actors { get; set; } = actors;
 
-    internal string Description { get; set; } = description;
+    public string? Description { get; set; } = description;
 
-    public static void Print(Movie movie)
+    internal static void Print(Movie movie)
     {
         Console.WriteLine
         (
@@ -42,7 +42,7 @@ internal class Movie(string name, string yearRelease, string genre, string direc
              +=========================================================================================================+
              1. НАЗВАНИЕ: {movie.Name}.
              +---------------------------------------------------------------------------------------------------------+
-             2. ГОД: {movie.YearRelease}.
+             2. ГОД: {movie.Year}.
              +---------------------------------------------------------------------------------------------------------+
              3. ЖАНР: {movie.Genre}.
              +---------------------------------------------------------------------------------------------------------+
