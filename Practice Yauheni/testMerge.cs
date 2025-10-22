@@ -4,4 +4,5 @@ public class testMerge
 {
     // a
     // b
+    // с
 }
