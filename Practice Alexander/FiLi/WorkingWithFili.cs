@@ -9,36 +9,44 @@ internal abstract class WorkingWithFili
 {
     private const string NameDir = "fili";
 
-    private static readonly JsonSerializerOptions Options = new JsonSerializerOptions
-    {
-        Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
-        WriteIndented = true
-    };
-
     internal static string[] GetListMovies()
     {
-        string[] list = [];
-        foreach (var file in new DirectoryInfo(NameDir).GetFiles())
+        var listFiles = new DirectoryInfo(NameDir).GetFiles();
+        string[] list = new string[listFiles.Length];
+        for (int i = 0; i < listFiles.Length; i++)
         {
-            Console.WriteLine(file.Name[..^5]);
-            list.Append(file.Name[..^5]);
+            list[i] = listFiles[i].Name[..^5];
         }
-        return Directory.GetFiles(NameDir, "*.json");
+
+        return list;
     }
 
     internal static void WriteJson(Movie movie)
     {
-        string? nameFile = movie.Name;
-
+        string? nameFile = movie.Name?.ToLower();
+        JsonSerializerOptions options = new JsonSerializerOptions
+        {
+            Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
+            WriteIndented = true
+        };
         if (!Directory.Exists(NameDir)) Directory.CreateDirectory(NameDir);
 
         using StreamWriter writer = new StreamWriter($"{NameDir}/{nameFile}.json", false, UTF8);
-        writer.Write(JsonSerializer.Serialize(movie, Options));
+        writer.Write(JsonSerializer.Serialize(movie, options));
     }
 
     internal static Movie? ReadJson(string? nameFile)
     {
-        using StreamReader reader = new StreamReader($"{NameDir}/{nameFile}.json", UTF8);
-        return JsonSerializer.Deserialize<Movie>(reader.ReadToEnd());
+        try
+        {
+            using StreamReader reader = new StreamReader($"{NameDir}/{nameFile}.json", UTF8);
+            return JsonSerializer.Deserialize<Movie>(reader.ReadToEnd());
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("ФАЙЛ НЕ НАЙДЕН!");
+        }
+
+        return null;
     }
 }
