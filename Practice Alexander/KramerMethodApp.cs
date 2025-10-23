@@ -16,12 +16,13 @@ internal abstract class KramerMethodApp
                                         | ВВОД КОМАНД производить во время запроса порядка системы. Разделитель - "," |
                                         +-----------------------------------------------------------------------------+
                                         """;
+
     private const string Separator = "==============================================================================+";
     private const string QuestionNumberEquations = "Введите количество уравнений в вашей системе: ";
     private const string InvalidInputMessage = "НЕВЕРНЫЙ ВВОД! Повторите ...";
     private const string Path = "kramerMethodLog.txt";
     private const string EndMessage = "Bye...";
-    
+
     internal static void StartApp()
     {
         Console.WriteLine(StartMessage);
@@ -76,28 +77,31 @@ internal abstract class KramerMethodApp
                     Console.WriteLine(forInputMessageB);
                     break;
             }
+
             for (int j = 0; j < matrix[i].Length; j++)
             {
                 while (true)
                 {
-                    Console.Write($"{j+1}: ");
+                    Console.Write($"{j + 1}: ");
                     if (double.TryParse(Console.ReadLine(), out double value))
                     {
                         matrix[i][j] = value;
                         break;
                     }
+
                     Console.WriteLine(InvalidInputMessage);
                 }
             }
         }
+
         return matrix;
     }
 
     private static double[][] Calculation(ref double[][] matrix, ref int numberEquations)
     {
-        double[] isDefined = {0, 1, 2};
+        double[] isDefined = { 0, 1, 2 };
         double[][] result = new double[3][];
-        result[0] = new []{isDefined[0]};
+        result[0] = new[] { isDefined[0] };
         result[1] = new double[numberEquations + 1];
         result[2] = new double[numberEquations];
         switch (numberEquations)
@@ -122,6 +126,7 @@ internal abstract class KramerMethodApp
                                matrix[0][3] * matrix[0][1] * matrix[1][2] - matrix[0][7] * matrix[1][1] * matrix[0][0];
                 break;
         }
+
         if (result[1][0] != 0)
         {
             for (int i = 1; i < result[1].Length; i++)
@@ -136,13 +141,15 @@ internal abstract class KramerMethodApp
                 equalityZero = false;
                 break;
             }
+
             result[0][0] = equalityZero ? isDefined[1] : isDefined[2];
         }
+
         return result;
     }
-    
+
     private static string PreparingOutput(ref double[][] matrix,
-            ref double[][] result, ref int numberEquations)
+        ref double[][] result, ref int numberEquations)
     {
         const string systemDefinedMessage = "Система уравнений совместна и определена.\nИмеет единственное решение:\n";
         const string systemNotDefinedMessage = "Система уравнений совместна, но не определена.\n" +
@@ -160,6 +167,7 @@ internal abstract class KramerMethodApp
             if ((i + 1) / numberEquations == 3)
                 matrixText += $"|\t{Math.Round(matrix[1][2], 2, MidpointRounding.AwayFromZero)}\n";
         }
+
         for (int i = 0; i < result[1].Length; i++)
             resultText += $"D{i} = {Math.Round(result[1][i], 3, MidpointRounding.AwayFromZero)}\n";
         switch (result[0][0])
@@ -167,7 +175,7 @@ internal abstract class KramerMethodApp
             case 0:
                 resultText += systemDefinedMessage;
                 for (int i = 0; i < result[2].Length; i++)
-                    resultText += $"x{i+1} = {Math.Round(result[2][i], 3, MidpointRounding.AwayFromZero)}\n";
+                    resultText += $"x{i + 1} = {Math.Round(result[2][i], 3, MidpointRounding.AwayFromZero)}\n";
                 break;
             case 1:
                 resultText += systemNotDefinedMessage;
@@ -176,6 +184,7 @@ internal abstract class KramerMethodApp
                 resultText += systemNotCompatibleMessage;
                 break;
         }
+
         return $"Введенная матрица имеет следующий вид:{matrixText}" +
                $"Значения определителей следующие:{resultText}{Separator}";
     }
@@ -184,7 +193,7 @@ internal abstract class KramerMethodApp
 internal abstract class WorkingWithLogs
 {
     private const string ErrorMessage = "ОШИБКА: ЛОГ-файл отсутствует.";
-    
+
     internal static void WriteLog(ref string message, string path)
     {
         StreamWriter writer = new StreamWriter(path, true, System.Text.Encoding.UTF8);
@@ -211,6 +220,7 @@ internal abstract class WorkingWithLogs
                 startOutputIndex = lastSeparatorIndex + 1;
                 lastSeparatorIndex = i;
             }
+
             Console.WriteLine($"\n{separator}");
             if (startOutputIndex is 0 or 1)
             {
