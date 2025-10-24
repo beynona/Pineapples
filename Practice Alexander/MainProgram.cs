@@ -3,6 +3,7 @@
 internal static class MainProgram
 {
     private const ulong LimitValue = ulong.MaxValue;
+
     private const string Message = "\nCовершенные числа - это натуральные числа,\nсумма собственных делителей которых" +
                                    " равна самому числу.\nФормула: n = (2^(p-1))*((2^p)-1)";
 
@@ -18,7 +19,10 @@ internal static class MainProgram
         // PerfectNumbersSearch();
 
         // ЗАПУСК ПРОГРАММЫ, РЕШАЮЩЕЙ СИСТЕМЫ ЛИНЕЙНЫХ УРАВНЕНИЙ (x2 / x3) МЕТОДОМ КРАМЕРА
-        KramerMethodApp.StartApp();
+        // KramerMethodApp.StartApp();
+
+        // ЗАПУСК ПРИЛОЖЕНИЯ "Библиотека фильмов"
+        FilmLibrary.StartApp();
     }
 
     private static void Task_1()
