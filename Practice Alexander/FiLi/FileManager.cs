@@ -5,13 +5,16 @@ using System.Text.Unicode;
 
 namespace Alexander.FiLi;
 
-internal abstract class WorkingWithFili
+internal static class FileManager
 {
-    private const string NameDir = "fili";
+    internal static void StartInitLibrary()
+    {
+        if (!Directory.Exists(TextExtension.NameDir)) FirstLibraryInit.StartInit();
+    }
 
     internal static string[] GetListMovies()
     {
-        var listFiles = new DirectoryInfo(NameDir).GetFiles();
+        var listFiles = new DirectoryInfo(TextExtension.NameDir).GetFiles();
         string[] list = new string[listFiles.Length];
         for (int i = 0; i < listFiles.Length; i++)
         {
@@ -29,9 +32,9 @@ internal abstract class WorkingWithFili
             Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
             WriteIndented = true
         };
-        if (!Directory.Exists(NameDir)) Directory.CreateDirectory(NameDir);
+        if (!Directory.Exists(TextExtension.NameDir)) Directory.CreateDirectory(TextExtension.NameDir);
 
-        using StreamWriter writer = new StreamWriter($"{NameDir}/{nameFile}.json", false, UTF8);
+        using StreamWriter writer = new StreamWriter($"{TextExtension.NameDir}/{nameFile}.json", false, UTF8);
         writer.Write(JsonSerializer.Serialize(movie, options));
     }
 
@@ -39,7 +42,7 @@ internal abstract class WorkingWithFili
     {
         try
         {
-            using StreamReader reader = new StreamReader($"{NameDir}/{nameFile}.json", UTF8);
+            using StreamReader reader = new StreamReader($"{TextExtension.NameDir}/{nameFile}.json", UTF8);
             return JsonSerializer.Deserialize<Movie>(reader.ReadToEnd());
         }
         catch (FileNotFoundException)

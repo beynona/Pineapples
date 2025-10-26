@@ -1,37 +1,30 @@
 namespace Alexander.FiLi;
 
-internal class Movie(string? name, string? year, string? genre, string? director, string? actors, string? description)
+internal class Movie
 {
-    public string? Name { get; init; } = name;
-    public string? Year { get; init; } = year;
-    public string? Genre { get; init; } = genre;
-    public string? Director { get; init; } = director;
-    public string? Actors { get; init; } = actors;
-    public string? Description { get; init; } = description;
+    internal Movie()
+    {
+    }
+
+    public Movie(string? name, string? year, string? genre, string? director, string? actors, string? description)
+    {
+        Name = name;
+        Year = year;
+        Genre = genre;
+        Director = director;
+        Actors = actors;
+        Description = description;
+    }
+
+    public string? Name { get; set; }
+    public string? Year { get; set; }
+    public string? Genre { get; set; }
+    public string? Director { get; set; }
+    public string? Actors { get; set; }
+    public string? Description { get; set; }
 
     internal static void Print(Movie? movie)
     {
-        Console.WriteLine
-        (
-            movie != null
-                ? $"""
-                   +=========================================================================================================+
-                   1. НАЗВАНИЕ: {movie.Name}.
-                   +---------------------------------------------------------------------------------------------------------+
-                   2. ГОД: {movie.Year}.
-                   +---------------------------------------------------------------------------------------------------------+
-                   3. ЖАНР: {movie.Genre}.
-                   +---------------------------------------------------------------------------------------------------------+
-                   4. РЕЖИССЕР: {movie.Director}.
-                   +---------------------------------------------------------------------------------------------------------+
-                   5. АКТЕРЫ:
-                   {movie.Actors}.
-                   +---------------------------------------------------------------------------------------------------------+
-                   6. ОПИСАНИЕ:
-                   {movie.Description}.
-                   +=========================================================================================================+
-                   """
-                : "+=========================================================================================================+"
-        );
+        Console.WriteLine(TextExtension.GetMovieInfo(movie));
     }
 }
