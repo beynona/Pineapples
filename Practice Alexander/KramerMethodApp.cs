@@ -25,7 +25,7 @@ public static class KramerMethodApp
                     Console.WriteLine("\n" + TextHelper.StartMessage);
                     break;
                 case "last":
-                    LogManager.ReadLustLog(TextHelper.Path, TextHelper.Separator);
+                    LogManager.ReadLastLog(TextHelper.Path, TextHelper.Separator);
                     break;
                 case "read":
                     LogManager.ReadLogs(TextHelper.Path, TextHelper.Separator);

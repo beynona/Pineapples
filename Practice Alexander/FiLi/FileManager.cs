@@ -9,6 +9,7 @@ internal static class FileManager
 {
     internal static void StartInitLibrary()
     {
+        //todo - дублирование кода
         if (!Directory.Exists(TextExtension.NameDir)) FirstLibraryInit.StartInit();
     }
 
@@ -32,8 +33,10 @@ internal static class FileManager
             Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
             WriteIndented = true
         };
+        //todo - дублирование кода
         if (!Directory.Exists(TextExtension.NameDir)) Directory.CreateDirectory(TextExtension.NameDir);
 
+        // todo - а если nameFile будет null?
         using StreamWriter writer = new StreamWriter($"{TextExtension.NameDir}/{nameFile}.json", false, UTF8);
         writer.Write(JsonSerializer.Serialize(movie, options));
     }

@@ -5,6 +5,7 @@ internal static class DataManager
     internal static double[][] DataGeneration(ref int numberEquations)
     {
         double[][] matrix = new double[2][];
+        //todo - лучше использовать Math.Pow для степени
         matrix[0] = new double[numberEquations * numberEquations];
         matrix[1] = new double[numberEquations];
         for (int i = 0; i < matrix.Length; i++)

@@ -15,7 +15,7 @@ internal static class LogManager
         }
     }
 
-    internal static void ReadLustLog(string path, string separator)
+    internal static void ReadLastLog(string path, string separator)
     {
         try
         {
@@ -49,6 +49,7 @@ internal static class LogManager
     {
         try
         {
+            // todo - Потоки в using оберни
             StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8);
             Console.Write($"\n{separator}\n{reader.ReadToEnd()}");
             reader.Dispose();
