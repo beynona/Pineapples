@@ -8,7 +8,7 @@ public static class FilmLibrary
     {
         Console.Clear();
         Console.WriteLine(TextExtension.StartMessage);
-        FileManager.StartInitLibrary();
+        FileManager.InitBaseLibrary();
         do
         {
             string? select = InOutConsole.OutMenu();

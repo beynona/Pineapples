@@ -2,11 +2,7 @@ namespace Alexander.FiLi;
 
 internal class Movie
 {
-    internal Movie()
-    {
-    }
-
-    public Movie(string? name, string? year, string? genre, string? director, string? actors, string? description)
+    public Movie(string name, string? year, string? genre, string? director, string? actors, string? description)
     {
         Name = name;
         Year = year;
@@ -16,7 +12,7 @@ internal class Movie
         Description = description;
     }
 
-    public string? Name { get; set; }
+    public string Name { get; set; }
     public string? Year { get; set; }
     public string? Genre { get; set; }
     public string? Director { get; set; }

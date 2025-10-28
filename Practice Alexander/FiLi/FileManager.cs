@@ -7,37 +7,42 @@ namespace Alexander.FiLi;
 
 internal static class FileManager
 {
-    internal static void StartInitLibrary()
+    internal static void InitBaseLibrary()
     {
-        //todo - дублирование кода
-        if (!Directory.Exists(TextExtension.NameDir)) FirstLibraryInit.StartInit();
+        if (!DirIsExists()) BaseLibrary.StartInit();
     }
 
     internal static string[] GetListMovies()
     {
-        var listFiles = new DirectoryInfo(TextExtension.NameDir).GetFiles();
-        string[] list = new string[listFiles.Length];
-        for (int i = 0; i < listFiles.Length; i++)
+        FileInfo[] files = new DirectoryInfo(TextExtension.NameDir).GetFiles();
+        string[] movies = new string[files.Length];
+        
+        for (int i = 0; i < files.Length; i++)
         {
-            list[i] = listFiles[i].Name[..^5];
+            movies[i] = files[i].Name[..^5];
         }
 
-        return list;
+        return movies;
     }
 
-    internal static void WriteJson(Movie movie)
+    internal static void WriteJson(Movie? movie)
     {
-        string? nameFile = movie.Name?.ToLower();
+        if (string.IsNullOrEmpty(movie?.Name))
+        {
+            return;
+        }
+        
+        string fileName = movie.Name.ToLower();
+        
         JsonSerializerOptions options = new JsonSerializerOptions
         {
             Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
             WriteIndented = true
         };
-        //todo - дублирование кода
-        if (!Directory.Exists(TextExtension.NameDir)) Directory.CreateDirectory(TextExtension.NameDir);
+        
+        if (!DirIsExists()) Directory.CreateDirectory(TextExtension.NameDir);
 
-        // todo - а если nameFile будет null?
-        using StreamWriter writer = new StreamWriter($"{TextExtension.NameDir}/{nameFile}.json", false, UTF8);
+        using StreamWriter writer = new StreamWriter($"{TextExtension.NameDir}/{fileName}.json", false, UTF8);
         writer.Write(JsonSerializer.Serialize(movie, options));
     }
 
@@ -54,5 +59,10 @@ internal static class FileManager
         }
 
         return null;
+    }
+
+    private static bool DirIsExists()
+    {
+        return Directory.Exists(TextExtension.NameDir);
     }
 }

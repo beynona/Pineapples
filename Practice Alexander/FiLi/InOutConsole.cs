@@ -12,22 +12,21 @@ internal static class InOutConsole
 
     internal static Movie AddMovie()
     {
-        Movie movie = new Movie();
         Console.Write("Введите название: ");
-        movie.Name = Console.ReadLine();
+        string name = Console.ReadLine();
         Console.Write("Введите год релиза: ");
-        movie.Year = Console.ReadLine();
+        string? year = Console.ReadLine();
         Console.Write("Введите жанр(ы): ");
-        movie.Genre = Console.ReadLine();
+        string? genre = Console.ReadLine();
         Console.Write("Введите режиссера: ");
-        movie.Director = Console.ReadLine();
+        string? director = Console.ReadLine();
         Console.Write("Введите актеров: ");
-        movie.Actors = Console.ReadLine();
+        string? actors = Console.ReadLine();
         Console.Write("Введите описание: ");
-        movie.Description = Console.ReadLine();
+        string? description = Console.ReadLine();
         Console.WriteLine(TextExtension.Separator);
 
-        return movie;
+        return new Movie(name, year, genre, director, actors, description);
     }
 
     internal static void OutListMovie()
