@@ -4,15 +4,8 @@ internal static class LogManager
 {
     internal static void WriteLog(ref string message, string path)
     {
-        StreamWriter writer = new StreamWriter(path, true, System.Text.Encoding.UTF8);
-        try
-        {
-            writer.WriteLine(message);
-        }
-        finally
-        {
-            writer.Dispose();
-        }
+        using StreamWriter writer = new StreamWriter(path, true, System.Text.Encoding.UTF8);
+        writer.WriteLine(message);
     }
 
     internal static void ReadLastLog(string path, string separator)
@@ -49,10 +42,8 @@ internal static class LogManager
     {
         try
         {
-            // todo - Потоки в using оберни
-            StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8);
+            using StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8);
             Console.Write($"\n{separator}\n{reader.ReadToEnd()}");
-            reader.Dispose();
         }
         catch (FileNotFoundException)
         {
