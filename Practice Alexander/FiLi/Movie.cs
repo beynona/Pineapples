@@ -12,6 +12,7 @@ internal class Movie
         Description = description;
     }
 
+    // test
     public string Name { get; set; }
     public string? Year { get; set; }
     public string? Genre { get; set; }
