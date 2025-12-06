@@ -1,0 +1,130 @@
+﻿@page "/"
+@using System.Runtime.InteropServices
+
+<div align="center">
+    <h1 class="name">
+        <span>Anime</span>Calculator <span class="version">v1.0</span>
+    </h1>
+    <img class="gifka" src="./images/boobs.gif" alt="boobs">
+    <p>
+        <input id="enter" type="text" maxlength="13" readonly="readonly" @bind-value="_data"/>
+    </p>
+
+    <div class="calculator">
+        <button class="btn btndls" @onclick="@(() => ClickNumber("<="))">⌫</button>
+        <button class="btn btndls" @onclick="@(() => ClickNumber("ac"))">AC</button>
+        <button class="btn btndls" @onclick="@(() => ClickOperation('%'))">%</button>
+        <button class="btn btndls" @onclick="@(() => ClickOperation('/'))">÷</button>
+
+        <button class="btn" @onclick="@(() => ClickNumber("7"))">7</button>
+        <button class="btn" @onclick="@(() => ClickNumber("8"))">8</button>
+        <button class="btn" @onclick="@(() => ClickNumber("9"))">9</button>
+        <button class="btn btndls" @onclick="@(() => ClickOperation('*'))">×</button>
+
+        <button class="btn" @onclick="@(() => ClickNumber("4"))">4</button>
+        <button class="btn" @onclick="@(() => ClickNumber("5"))">5</button>
+        <button class="btn" @onclick="@(() => ClickNumber("6"))">6</button>
+        <button class="btn btndls" @onclick="@(() => ClickOperation('-'))">−</button>
+
+        <button class="btn" @onclick="@(() => ClickNumber("1"))">1</button>
+        <button class="btn" @onclick="@(() => ClickNumber("2"))">2</button>
+        <button class="btn" @onclick="@(() => ClickNumber("3"))">3</button>
+        <button class="btn btndls" @onclick="@(() => ClickOperation('+'))">+</button>
+
+        <button class="btn btndls" @onclick="@(() => ClickNumber(","))">,</button>
+        <button class="btn" @onclick="@(() => ClickNumber("0"))">0</button>
+        <button class="btn btnr btndls" @onclick="ClickResult">=</button>
+    </div>
+</div>
+
+@code {
+    private string? _data = "0";
+    private char? _operation;
+    private decimal? _firstVariable;
+    private decimal? _secondVariable;
+    private void DataReset() => _data = "0";
+    private void AddNumberToData(string number) => _data += number;
+
+    private void ClickNumber(string buttonValue)
+    {
+        switch (buttonValue)
+        {
+            case "ac":
+                DataReset();
+                break;
+            case "<=":
+                if (_data != null && _data is { Length: 1 } | _data.Length == 2 & _data[0] == '-')
+                {
+                    DataReset();
+                    return;
+                }
+
+                _data = _data?.Remove(_data.Length - 1, 1);
+                break;
+            case ",":
+                if (_data != null && _data.Any(ch => ch == ',')) return;
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    AddNumberToData(buttonValue);
+                    return;
+                }
+                
+                AddNumberToData(".");
+                break;
+            default:
+                if (_data == "0")
+                {
+                    _data = buttonValue;
+                    return;
+                }
+
+                AddNumberToData(buttonValue);
+                break;
+        }
+    }
+
+    private void ClickOperation(char buttonValue)
+    {
+        if (buttonValue == '-' && _data == "0")
+        {
+            _data = "-";
+            return;
+        }
+
+        if (_firstVariable != null) return;
+        if (_data != null)
+        {
+            _firstVariable = decimal.Parse(_data);
+            if (buttonValue == '%')
+            {
+                _data = (_firstVariable / 100).ToString();
+                _firstVariable = null;
+                return;
+            }
+        }
+
+        _operation = buttonValue;
+        DataReset();
+    }
+
+    private void ClickResult()
+    {
+        if (_firstVariable == null) return;
+
+        if (_data != null)
+        {
+            _secondVariable = decimal.Parse(_data);
+            _data = _operation switch
+            {
+                '+' => (_firstVariable + _secondVariable).ToString(),
+                '-' => (_firstVariable - _secondVariable).ToString(),
+                '*' => (_firstVariable * _secondVariable).ToString(),
+                '/' => (_secondVariable == 0 ? "0" : (_firstVariable / _secondVariable).ToString()),
+                _ => _data
+            };
+        }
+
+        _firstVariable = _secondVariable = _operation = null;
+    }
+
+}
