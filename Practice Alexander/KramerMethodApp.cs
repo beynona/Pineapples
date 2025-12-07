@@ -1,82 +1,47 @@
+using Alexander.KramerMethodTools;
+
 namespace Alexander;
 
-internal abstract class KramerMethodApp
+public static class KramerMethodApp
 {
-    private const string StartMessage = """
-                                         _____________________________________________________________________________
-                                        | Данная программа предназначена для расчета решения систем линейных уравнений|
-                                        |методом Крамера. Принимает в качестве аргументов коэффициенты при неизвестных|
-                                        |по порядку: слева-направо, сверху-вниз; и свободные коэффициенты. Реализованы|
-                                        |расчеты решений для систем из 2-х и 3-х уравнений.                           |
-                                        |                      _-=||| УПРАВЛЯЮЩИЕ КОМАНДЫ |||=-_                      |
-                                        +=============================================================================+
-                                        |==| "exit" - выход | "doc" - вывод описания | "last" - последний результат |=|
-                                        |=======| "read" - вывод всего лог-файла | "clear" - очистка лог-файла |======|
-                                        +=============================================================================+
-                                        | ВВОД КОМАНД производить во время запроса порядка системы. Разделитель - "," |
-                                        +-----------------------------------------------------------------------------+
-                                        """;
-
-    private const string Separator = "==============================================================================+";
-    private const string QuestionNumberEquations = "Введите количество уравнений в вашей системе: ";
-    private const string InvalidInputMessage = "НЕВЕРНЫЙ ВВОД! Повторите ...";
-    private const string Path = "kramerMethodLog.txt";
-    private const string EndMessage = "Bye...";
-
     internal static void StartApp()
     {
-        Console.WriteLine(StartMessage);
+        Console.WriteLine(TextHelper.StartMessage);
         do
         {
-            Console.Write("\n" + QuestionNumberEquations);
+            Console.Write("\n" + TextHelper.QuestionNumberEquations);
             string? input = Console.ReadLine()?.ToLower();
-            if (input is "2" or "3")
+            switch (input)
             {
-                int numberEquations = Convert.ToInt32(input);
-                double[][] matrix = DataGeneration(ref numberEquations);
-                double[][] result = Calculation(ref matrix, ref numberEquations);
-                string message = PreparingOutput(ref matrix, ref result, ref numberEquations);
-                WorkingWithLogs.WriteLog(ref message, Path);
-                Console.WriteLine($"\n{Separator}\n{message}");
+                case "2" or "3":
+                    int numberEquations = Convert.ToInt32(input);
+                    double[][] matrix = DataManager.DataGeneration(ref numberEquations);
+                    double[][] result = DataManager.Calculation(ref matrix, ref numberEquations);
+                    string message = TextHelper.PreparingOutput(ref matrix, ref result, ref numberEquations);
+                    LogManager.WriteLog(ref message, TextHelper.Path);
+                    Console.WriteLine($"\n{TextHelper.Separator}\n{message}");
+                    break;
+                case "doc":
+                    Console.WriteLine("\n" + TextHelper.StartMessage);
+                    break;
+                case "last":
+                    LogManager.ReadLastLog(TextHelper.Path, TextHelper.Separator);
+                    break;
+                case "read":
+                    LogManager.ReadLogs(TextHelper.Path, TextHelper.Separator);
+                    break;
+                case "clear":
+                    LogManager.ClearLogs(TextHelper.Path);
+                    break;
+                case "exit":
+                    Console.WriteLine("\n" + TextHelper.EndMessage);
+                    return;
+                default:
+                    Console.WriteLine(TextHelper.InvalidInputMessage);
+                    continue;
             }
-            else if (input is "doc")
-                Console.WriteLine("\n" + StartMessage);
-            else if (input is "last")
-                WorkingWithLogs.ReadLustLog(Path, Separator);
-            else if (input is "read")
-            {
-                WorkingWithLogs.ReadLogs(Path, Separator);
-            }
-            else if (input is "clear")
-                WorkingWithLogs.ClearLogs(Path);
-            else if (input is "exit")
-            {
-                Console.WriteLine("\n" + EndMessage);
-                break;
-            }
-            else
-                Console.WriteLine(InvalidInputMessage);
         } while (true);
-    }
 
-    private static double[][] DataGeneration(ref int numberEquations)
-    {
-        const string forInputMessageA = "\nВвод значений коэффициентов при неизвестных (слева-направо, сверху-вниз):";
-        const string forInputMessageB = "\nВвод значений свободных коэффициентов:";
-        double[][] matrix = new double[2][];
-        matrix[0] = new double[numberEquations * numberEquations];
-        matrix[1] = new double[numberEquations];
-        for (int i = 0; i < matrix.Length; i++)
-        {
-            switch (i)
-            {
-                case 0:
-                    Console.WriteLine(forInputMessageA);
-                    break;
-                case 1:
-                    Console.WriteLine(forInputMessageB);
-                    break;
-            }
 
             for (int j = 0; j < matrix[i].Length; j++)
             {

@@ -2,32 +2,16 @@ using Alexander.FiLi;
 
 namespace Alexander;
 
-internal abstract class FilmLibrary
+public static class FilmLibrary
 {
-    private const string StartMessage =
-        """
-        +=========================================================================================================+
-        ||                                          _____ ___  _    ___                                          ||
-        ||                                         |  ___|_ _/| |  |_ _/                                         ||
-        ||                                         | |_   | | | |   | |                                          ||
-        ||                                         |  _|  | | | |__ | |                                          ||
-        ||                                         |_|   |___\|____|___\                                         ||
-        ||                                                                                                       ||
-        ||                                 Вас приветствует FiLi (Film Library)!                                 ||
-        ||                     Приложение, своего рода библиотека, которую Вы создаете сами.                     ||
-        ||                                                                                                       ||
-        +=========================================================================================================+
-        """;
-
-    internal static void StartApp()
+    public static void StartApp()
     {
         Console.Clear();
-        Console.WriteLine(StartMessage);
-        StartAddMovies();
-
+        Console.WriteLine(TextExtension.StartMessage);
+        FileManager.InitBaseLibrary();
         do
         {
-            string select = InOutConsole.OutMenu();
+            string? select = InOutConsole.OutMenu();
             switch (select)
             {
                 case "1":
@@ -35,13 +19,17 @@ internal abstract class FilmLibrary
                     InOutConsole.SelectMovie();
                     break;
                 case "2":
-                    WorkingWithFili.WriteJson(InOutConsole.AddMovie());
+                    FileManager.WriteJson(InOutConsole.AddMovie());
+
                     break;
                 case "3":
                     Console.Clear();
                     break;
                 case "4":
                     return;
+                default:
+                    Console.WriteLine("НЕВЕРНЫЙ ВВОД! Повторите...");
+                    continue;
             }
         } while (true);
     }

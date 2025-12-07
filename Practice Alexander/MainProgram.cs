@@ -1,6 +1,6 @@
 ﻿namespace Alexander;
 
-internal static class MainProgram
+internal class MainProgram
 {
     private const ulong LimitValue = ulong.MaxValue;
 
@@ -42,7 +42,7 @@ internal static class MainProgram
                           $"Работает: {(working == "да" || working == "нет" ? working : "не определено")}\n");
     }
 
-    private static void Task_2()
+    private void Task_2()
     {
         do
         {
@@ -62,7 +62,7 @@ internal static class MainProgram
     числом. Простое число - натуральное число отличное от 1,которое делится без остатка только на 1 и на само себя.
     Поиск совершенных чисел в данном решении будет производиться путем проверки на простое число.
     */
-    private static void PerfectNumbersSearch()
+    private void PerfectNumbersSearch()
     {
         ulong[] perfectNumbers = new ulong[10];
         // Перебираем степени по 60ю включительно, так как на 61ой проверяемый множитель будет порядка максимального
