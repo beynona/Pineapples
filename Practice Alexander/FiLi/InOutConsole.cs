@@ -13,7 +13,8 @@ internal static class InOutConsole
     internal static Movie AddMovie()
     {
         Console.Write("Введите название: ");
-        string name = Console.ReadLine();
+
+        string? name = Console.ReadLine();
         Console.Write("Введите год релиза: ");
         string? year = Console.ReadLine();
         Console.Write("Введите жанр(ы): ");
@@ -32,12 +33,14 @@ internal static class InOutConsole
     internal static void OutListMovie()
     {
         string[] list = FileManager.GetListMovies();
+
         for (int i = 0; i < list.Length; i++)
         {
             Console.WriteLine($"{i + 1}. {list[i]}.");
         }
 
         Console.WriteLine(TextExtension.Separator);
+
     }
 
     internal static void SelectMovie()
@@ -48,5 +51,6 @@ internal static class InOutConsole
         Console.Write("Нажмите любую клавишу для продолжения...");
         Console.ReadKey();
         Console.WriteLine(TextExtension.Separator);
+
     }
 }
