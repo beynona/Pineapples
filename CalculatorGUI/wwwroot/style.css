@@ -1,0 +1,166 @@
+@font-face {
+    font-family: deathnote;
+    src: url(./fonts/deathnote.ttf);
+}
+
+h1 {
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-left: -13px;
+}
+
+p {
+    margin: 5px;
+}
+
+div h1 span {
+    color: #fbc2eb;
+    margin: 0;
+}
+
+.version {
+    color: #a18cd1;
+}
+
+body {
+    background-color: aqua;
+    background-image: linear-gradient();
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fdb8ba 5%, #fad0c4 10%, #fbc2eb 20%, #a6c1ee 30%, #a18cd1 40%, #8a77b8 50%,
+    #8a77b8 50%, #a18cd1 60%, #a6c1ee 70%, #fbc2eb 80%, #fad0c4 90%, #fdb8ba 95%, #ff9a9e 100%);
+    background-size: 1000% 1000%;
+    animation: gradient-animation 15s ease infinite;
+    overflow: hidden;
+}
+
+.name {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, Arial, Helvetica, sans-serif;
+    color: #8a77b8;
+    font-size: 43px;
+    font-weight: bolder;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gifka {
+    width: 298px;
+    height: 75px;
+    display: flex;
+    text-align: center;
+    border-style: groove;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid #a18cd1;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 16px;
+    margin-bottom: 3px;
+}
+
+#enter {
+    border: 2px solid #f15fde;
+    font-size: 30px;
+    font-family: 'deathnote', Arial, Helvetica, sans-serif;
+    width: 297px;
+    height: 2em;
+    background-color: #fbc2eb;
+    background-image: url(./images/enter.jpg);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #bd0000;
+    background-size: 90%;
+    background-position-y: 70%;
+    background-position-x: center;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-weight: bolder;
+    -webkit-text-stroke: black 0.1px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 15px;
+}
+
+.btn-secondary {
+    border: 1px solid #f15fde;
+    margin-top: 0px;
+    height: 31px;
+    background-color: #fbc2eb;
+    padding-right: 15px;
+}
+
+.calculator {
+    display: grid;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    gap: 7px;
+    width: 12em;
+    height: 14em;
+    margin: 0px;
+    padding-right: 15px;
+}
+
+.btn {
+    font-family: 'deathnote', Arial, Helvetica, sans-serif;
+    background-color: #fbc2eb;
+    border-color: #f15fde;
+    font-size: 30px;
+    color: #bd0000;
+    -webkit-text-stroke: black 0.1px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.btnr {
+    background-image: url('./images/btnr.jpg');
+    background-size: 100%;
+    background-position: center;
+    color: aqua;
+    width: 207.5%;
+    border-color: aqua;
+}
+
+input {
+    text-align: right;
+}
+
+button:active {
+    background-color: aqua;
+    transform: scale(0.8);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+input:focus {
+    caret-color: #f15fde;
+    background-blend-mode: multiply;
+}
+
+.btndls {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #ffaae7;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
